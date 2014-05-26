@@ -1,6 +1,8 @@
+@import 'bourbon/bourbon';
 body {
 	color: #5a5a5a;
 }
+
 .navbar-brand {
 	max-height: 100px;
 	margin-top: -8px;
@@ -26,5 +28,5 @@ body {
 	font-size:21px;
 	margin-bottom: 20px;
 	font-weight: 200;
-	line-height: 1.4
+	line-height: 1.4;
 }
