@@ -12,6 +12,7 @@ var findBowerTrees = require('broccoli-bower');
 var uglifyJavaScript = require('broccoli-uglify-js');
 var uncss = require('broccoli-uncss');
 var env = require('broccoli-env').getEnv();
+var gzipFiles = require('broccoli-gzip');
 
 
 var app = 'app';
@@ -81,7 +82,10 @@ if (env === 'production') {
 	appJs = uglifyJavaScript(appJs, {
 		// mangle: false,
 		// compress: true
-	})
+	});
+	appJs = gzipFiles(appJs, {
+		extensions:['js']
+	});
 	// appCss = uncss(appCss, {
 	// 	htmlroot:'assets/app.css'
 	// })

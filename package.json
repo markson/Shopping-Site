@@ -10,6 +10,7 @@
     "broccoli-coffee": "^0.1.0",
     "broccoli-env": "0.0.1",
     "broccoli-es6-concatenator": "^0.1.6",
+    "broccoli-gzip": "^0.2.0",
     "broccoli-merge-trees": "^0.1.4",
     "broccoli-render-template": "0.0.2",
     "broccoli-sass": "^0.2.1",
