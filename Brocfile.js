@@ -47,7 +47,7 @@ var sourceTrees = [app, vendor];
 var  bowerTrees = findBowerTrees();
 sourceTrees = sourceTrees.concat(bowerTrees);
 
-var appAndDependencies = new mergeTrees(sourceTrees);
+var appAndDependencies = new mergeTrees(sourceTrees, {overwrite: true});
 
 var appJs = generateES6Modules(appAndDependencies, {
 	loaderFile: 'loader.js',
@@ -61,6 +61,7 @@ var appJs = generateES6Modules(appAndDependencies, {
 		'ember-data.js',
 		'ember-resolver.js'
 	],
+	wrapInEval: env !== 'production',
 	inputFiles: ['appkit/**/*.js'],
 	outputFile: '/assets/app.js'
 });
@@ -80,8 +81,8 @@ var appCss = compileSass([appCss], 'appkit/styles/main.scss', 'assets/app.css');
 var publicFiles = 'public'
 if (env === 'production') {
 	appJs = uglifyJavaScript(appJs, {
-		// mangle: false,
-		// compress: true
+		mangle: true,
+		compress: true
 	});
 	appJs = gzipFiles(appJs, {
 		extensions:['js']
