@@ -1,4 +1,4 @@
-@import "assets/bootstrap/stylesheets/bootstrap.scss";
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 body {
 	color: #5a5a5a;
 }
@@ -29,4 +29,7 @@ body {
 	margin-bottom: 20px;
 	font-weight: 200;
 	line-height: 1.4;
+}
+.products ul {
+	list-style: none;
 }

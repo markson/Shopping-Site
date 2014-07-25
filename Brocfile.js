@@ -1,25 +1,34 @@
 var compileCoffeeScript = require('broccoli-coffee');
+// var compileES6 = require('broccoli-traceur');
+var select = require('broccoli-select');
 var compileSass = require('broccoli-sass');
 var mergeTrees = require('broccoli-merge-trees');
 var env = require('broccoli-env').getEnv();
 var pickFiles = require('broccoli-static-compiler');
 var filterTemplates = require('broccoli-template');
-var compileES6 = require('broccoli-es6-concatenator');
+var generateES6Modules = require('broccoli-es6-concatenator');
 var mergeTrees = require('broccoli-merge-trees');
 var findBowerTrees = require('broccoli-bower');
+var uglifyJavaScript = require('broccoli-uglify-js');
+var uncss = require('broccoli-uncss');
+var env = require('broccoli-env').getEnv();
+
 
 var app = 'app';
-
 
 function preprocess(tree) {
 	tree = filterTemplates(tree, {
 		extensions: ['hbs'],
 		compileFunction: 'Ember.Handlebars.compile'
 	});
-// tree  = compileCoffeeScript(coffeeTree, {
-// 	bare: true
-// });
-//
+
+	tree  = compileCoffeeScript(tree, {
+		bare: true
+	});
+	// tree = compileES6(tree, {
+	// 	modules: false
+	// })
+
 	return tree;
 };
 
@@ -30,21 +39,16 @@ app = pickFiles(app, {
 
 app = preprocess(app);
 
+
 var vendor = 'vendor'
 
-var bootstrap = pickFiles('bower_components', {
-	srcDir:'/bootstrap-sass-official/assets/',
-	destDir:'assets/bootstrap'
-});
+var sourceTrees = [app, vendor];
+var  bowerTrees = findBowerTrees();
+sourceTrees = sourceTrees.concat(bowerTrees);
 
-var sourceTrees = [app, vendor, bootstrap];
-sourceTrees = sourceTrees.concat(findBowerTrees());
+var appAndDependencies = new mergeTrees(sourceTrees);
 
-
-
-var appAndDependencies = new mergeTrees(sourceTrees, { overwrite: true });
-
-var appJs = compileES6(appAndDependencies, {
+var appJs = generateES6Modules(appAndDependencies, {
 	loaderFile: 'loader.js',
 	ignoredModules: [
 		'ember/resolver'
@@ -61,10 +65,27 @@ var appJs = compileES6(appAndDependencies, {
 });
 
 
+var appCss = pickFiles(appAndDependencies, {
+	srcDir: '/',
+	files: ['**/*.scss'],
+	destDir:'/'
+})
 
-var appCss = compileSass(sourceTrees, 'appkit/styles/main.scss', 'assets/app.css');
+
+
+var appCss = compileSass([appCss], 'appkit/styles/main.scss', 'assets/app.css');
 
 
 var publicFiles = 'public'
+if (env === 'production') {
+	appJs = uglifyJavaScript(appJs, {
+		// mangle: false,
+		// compress: true
+	})
+	// appCss = uncss(appCss, {
+	// 	htmlroot:'assets/app.css'
+	// })
+}
+
 
 module.exports = mergeTrees([appJs, appCss, publicFiles]);

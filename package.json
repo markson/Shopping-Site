@@ -13,8 +13,11 @@
     "broccoli-merge-trees": "^0.1.4",
     "broccoli-render-template": "0.0.2",
     "broccoli-sass": "^0.2.1",
+    "broccoli-select": "^0.1.0",
     "broccoli-static-compiler": "^0.1.4",
     "broccoli-template": "^0.1.1",
+    "broccoli-uglify-js": "^0.1.3",
+    "broccoli-uncss": "^0.2.0",
     "handlebars": "^1.3.0"
   },
   "scripts": {
