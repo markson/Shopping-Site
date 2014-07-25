@@ -10,7 +10,8 @@ var generateES6Modules = require('broccoli-es6-concatenator');
 var mergeTrees = require('broccoli-merge-trees');
 var findBowerTrees = require('broccoli-bower');
 var uglifyJavaScript = require('broccoli-uglify-js');
-var uncss = require('broccoli-uncss');
+var cleanCss = require('broccoli-clean-css');
+// var uncss = require('broccoli-uncss');
 var env = require('broccoli-env').getEnv();
 var gzipFiles = require('broccoli-gzip');
 
@@ -78,19 +79,13 @@ var appCss = pickFiles(appAndDependencies, {
 var appCss = compileSass([appCss], 'appkit/styles/main.scss', 'assets/app.css');
 
 
-var publicFiles = 'public'
 if (env === 'production') {
 	appJs = uglifyJavaScript(appJs, {
 		mangle: true,
 		compress: true
 	});
-	// appJs = gzipFiles(appJs, {
-	// 	extensions:['js']
-	// });
-	// appCss = uncss(appCss, {
-	// 	htmlroot:'assets/app.css'
-	// })
+	appCss = cleanCss(appCss);
 }
 
 
-module.exports = mergeTrees([appJs, appCss, publicFiles]);
+module.exports = mergeTrees([appJs, appCss, 'public']);
