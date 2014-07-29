@@ -15,6 +15,9 @@ var cleanCss = require('broccoli-clean-css');
 var env = require('broccoli-env').getEnv();
 var gzipFiles = require('broccoli-gzip');
 
+// var instrument =require('broccoli-debug').instrument;
+// var stripDebug = require('broccoli-strip-debug');
+
 
 var app = 'app';
 
@@ -68,15 +71,20 @@ var appJs = generateES6Modules(appAndDependencies, {
 });
 
 
-var appCss = pickFiles(appAndDependencies, {
+var appSass = pickFiles(appAndDependencies, {
 	srcDir: '/',
 	files: ['**/*.scss'],
 	destDir:'/'
-})
+});
+
+var appFont = pickFiles('bower_components', {
+	srcDir: '/font-awesome',
+	files:['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff'],
+	destDir:'/'
+});
 
 
-
-var appCss = compileSass([appCss], 'appkit/styles/main.scss', 'assets/app.css');
+var appCss = compileSass([appSass], 'appkit/styles/main.scss', 'assets/app.css');
 
 
 if (env === 'production') {
@@ -88,4 +96,4 @@ if (env === 'production') {
 }
 
 
-module.exports = mergeTrees([appJs, appCss, 'public']);
+module.exports = mergeTrees([appJs, appCss, appFont, 'public']);
