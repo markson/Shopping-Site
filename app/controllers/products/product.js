@@ -4,5 +4,6 @@ export default Ember.ObjectController.extend({
 	}.property('id'),
 	alt: function() {
 		return 'This is the description of cup' + this.get('id');
-	}.property('id')
+	}.property('id'),
+	amount: 0
 })
