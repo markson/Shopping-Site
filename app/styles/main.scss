@@ -84,7 +84,11 @@ input[type=number]::-webkit-outer-spin-button {
  }
 
 
- .legal, .supporter {
+ .legal, .supporter{
 	 text-align: center;
 	 max-width: 940px;
+ }
+
+ .align-right {
+	 text-align: center;
  }

@@ -3,11 +3,14 @@
 		<h2 class='panel-title'>Our Prodcuts</h2>
 	</div>
 	<div class='panel-body'>
-		<p>{{foo}}</p>
 		<ul class='row'>
 			{{#each}}
 			{{render 'products/product' this}}
 			{{/each}}
-      </li>
+		<ul>
+	</div>
+	<div class='well align-right'>
+	<button class='btn btn-lg btn-success'{{action 'generateInvoice'}} >Generate Invoice</button>
+	</div>
   </div>
 </div>
