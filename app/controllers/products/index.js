@@ -14,7 +14,7 @@ export default Ember.ArrayController.extend({
 				cup_1_amount = obj.get('amount');
 			});
 
-			$.post('http://cage.mko.io',{
+			$.post('http://nzud.co.nz/invoice',{
 					cup_1: cup_1_amount,
 					cup_2: cup_2_amount,
 					cup_3:cup_3_amount
