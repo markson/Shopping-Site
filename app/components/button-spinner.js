@@ -9,10 +9,8 @@ export default Ember.Component.extend({
 		};
 
 		if($.inArray('fa-caret-up', classList) == 1) {
-			console.log('upper');
 			this.sendAction('action','up');
 		} else if($.inArray('fa-caret-down', classList) == 1) {
-			console.log('down');
 			this.sendAction('action','down');
 		}
 	}

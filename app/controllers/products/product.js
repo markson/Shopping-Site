@@ -5,7 +5,6 @@ export default Ember.ObjectController.extend({
 	alt: function() {
 		return 'This is the description of cup' + this.get('id');
 	}.property('id'),
-	amount: 10,
 	actions: {
 		increaseAmount: function(upOrDown) {
 			if(upOrDown == 'up') {
