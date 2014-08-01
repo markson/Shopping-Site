@@ -8,7 +8,7 @@ export default Ember.ArrayController.extend({
 				var cup_2_amount = obj.get('amount');
 				store.find('product', 3).then(function(obj){
 				var cup_3_amount = obj.get('amount');
-				$.post('invoice',{
+				$.post(location.protocol+'//'+location.host +'/invoice',{
 					cup_1: cup_1_amount,
 					cup_2: cup_2_amount,
 					cup_3: cup_3_amount
