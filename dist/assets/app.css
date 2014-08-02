@@ -5528,16 +5528,3 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   position: absolute;
   top: 0;
   left: 4px; }
-
-.legal, .supporter {
-  text-align: center;
-  max-width: 940px; }
-
-@media (max-width: 480px) and (max-width: 767px) {
-  .modal {
-    position: fixed;
-    top: 20px !important;
-    right: 3%;
-    left: 3%;
-    width: auto;
-    margin: 0; } }
