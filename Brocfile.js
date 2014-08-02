@@ -66,7 +66,8 @@ var appJs = generateES6Modules(appAndDependencies, {
 		'ember-resolver.js',
 		'holder.js',
 		'modal.js',
-		'transition.js'
+		'transition.js',
+		'collapse.js'
 	],
 	wrapInEval: env !== 'production',
 	inputFiles: ['appkit/**/*.js'],
