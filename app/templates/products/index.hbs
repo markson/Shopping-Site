@@ -3,14 +3,45 @@
 		<h2 class='panel-title'>Our Prodcuts</h2>
 	</div>
 	<div class='panel-body'>
-		<ul class='row'>
-			{{#each}}
-			{{render 'products/product' this}}
-			{{/each}}
-		<ul>
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<h3 class='panel-title'>Featured Products</h3>
+			</div>
+			<div class='panel-body'>
+				<ul class='row'>
+					{{#each}}
+					{{render 'products/product' this}}
+					{{/each}}
+				<ul>
+			</div>
+		</div>
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<h3 class='panel-title'>printed cups</h3>
+			</div>
+			<div class='panel-body'>
+				<ul class='row'>
+					{{#each}}
+					{{render 'products/product' this}}
+					{{/each}}
+				<ul>
+			</div>
+		</div>
+		<div class='panel panel-default'>
+			<div class='panel-heading'>
+				<h3 class='panel-title'>single wall cups</h3>
+			</div>
+			<div class='panel-body'>
+				<ul class='row'>
+					{{#each}}
+					{{render 'products/product' this}}
+					{{/each}}
+				<ul>
+			</div>
+		</div>
 	</div>
-	<div class='well align-right'>
-	<button class='btn btn-lg btn-success'{{action 'generateInvoice'}} >Generate Invoice</button>
+	<div class='well'>
+	<button class='btn btn-lg btn-success center-block'{{action 'generateInvoice'}} >Generate Invoice</button>
 	</div>
   </div>
 </div>
