@@ -10,6 +10,17 @@
 	</li>
 	{{/each}}
 </ul>
-<div class='ui segement'>
-	<button {{action 'generateInvoice'}} >Generate Invoice</button>
+<div class='ui purple inverted segment'>
+	<div class='ui three column grid'>
+		<div class='column'>
+		</div>
+		<div class='column'>
+			<button class='fluid ui green  button' {{action 'generateInvoice'}} >
+				<i class='icon file'></i>
+				Generate Invoice
+			</button>
+		</div>
+		<div class='column'>
+		</div>
+	</div>
 </div>
