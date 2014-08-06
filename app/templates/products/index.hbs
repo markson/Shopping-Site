@@ -1,47 +1,15 @@
-<div class='panel panel-default products'>
-	<div class='panel-heading'>
-		<h2 class='panel-title'>Our Prodcuts</h2>
-	</div>
-	<div class='panel-body'>
-		<div class='panel panel-default'>
-			<div class='panel-heading'>
-				<h3 class='panel-title'>Featured Products</h3>
-			</div>
-			<div class='panel-body'>
-				<ul class='row'>
-					{{#each}}
-					{{render 'products/product' this}}
-					{{/each}}
-				<ul>
-			</div>
-		</div>
-		<div class='panel panel-default'>
-			<div class='panel-heading'>
-				<h3 class='panel-title'>printed cups</h3>
-			</div>
-			<div class='panel-body'>
-				<ul class='row'>
-					{{#each}}
-					{{render 'products/product' this}}
-					{{/each}}
-				<ul>
-			</div>
-		</div>
-		<div class='panel panel-default'>
-			<div class='panel-heading'>
-				<h3 class='panel-title'>single wall cups</h3>
-			</div>
-			<div class='panel-body'>
-				<ul class='row'>
-					{{#each}}
-					{{render 'products/product' this}}
-					{{/each}}
-				<ul>
-			</div>
-		</div>
-	</div>
-	<div class='well'>
-	<button class='btn btn-lg btn-success center-block'{{action 'generateInvoice'}} >Generate Invoice</button>
-	</div>
-  </div>
+<ul class='ui basic segment category'>
+	{{#each}}
+	<li class='ui segment'>
+		<div class='ui green ribbon label'>{{category_name}}</div>
+		<ul class='ui items items'>
+			{{#each this.products}}
+			{{render 'products/product' this}}
+			{{/each}}
+		</ul>
+	</li>
+	{{/each}}
+</ul>
+<div class='ui segement'>
+	<button {{action 'generateInvoice'}} >Generate Invoice</button>
 </div>

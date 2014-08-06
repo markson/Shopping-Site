@@ -43,8 +43,6 @@ app = pickFiles(app, {
 })
 
 app = preprocess(app);
-
-
 var vendor = 'vendor'
 
 var sourceTrees = [app, vendor];
@@ -64,16 +62,12 @@ var appJs = generateES6Modules(appAndDependencies, {
 		'ember.js',
 		'ember-data.js',
 		'ember-resolver.js',
-		'holder.js',
-		'modal.js',
-		'transition.js',
-		'collapse.js'
+		'holder.js'
 	],
 	wrapInEval: env !== 'production',
 	inputFiles: ['appkit/**/*.js'],
 	outputFile: '/assets/app.js'
 });
-
 
 var appSass = pickFiles(appAndDependencies, {
 	srcDir: '/',
@@ -81,11 +75,17 @@ var appSass = pickFiles(appAndDependencies, {
 	destDir:'/'
 });
 
-var appFont = pickFiles('bower_components', {
-	srcDir: '/font-awesome',
-	files:['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff'],
-	destDir:'/'
-});
+// var appFont = pickFiles('bower_components', { // 	srcDir: '/font-awesome',
+// 	files:['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff'],
+// 	destDir:'/'
+// });
+//
+ var appFont = pickFiles('bower_components', {
+	srcDir: '/semantic-ui-sass/app/assets/fonts',
+ 	files:['**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff'],
+ 	destDir:'/assets'
+ });
+
 
 
 var appCss = compileSass([appSass], 'appkit/styles/main.scss', 'assets/app.css');
@@ -100,4 +100,5 @@ if (env === 'production') {
 }
 
 
-module.exports = mergeTrees([appJs, appCss, appFont, 'public']);
+
+module.exports = mergeTrees([appJs, appCss, appFont,'public']);

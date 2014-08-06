@@ -1,38 +1,38 @@
-<div class='container'>
-  <div class='jumbotron'>
-    <h1>Quality of New Zealand</h1>
+<div class='ui basic segment'>
+  <div id='jumbotron'>
+    <h1 class='ui header'>Quality of New Zealand</h1>
     <p>Welcome to United Resource Co. We provides a full range of products</p>
-    <p>{{#link-to 'about' classNames='btn btn-primary btn-lg'}}Learn more{{/link-to}}</p>
+    {{#link-to 'about' classNames='large ui blue button'}}Learn more{{/link-to}}
   </div>
-  <div class='row featurette'>
-    <div class='col-md-7'>
-      <h2>
-        First feature heading
-        <span class='text-muted'>
-          It'll blow your mind.
-        </span>
-      </h2>
-      <p>
-        Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-      </p>
-    </div>
-    <div class='col-md-5'>
-      <img alt='all cups together' class='img-responsive' src='img/all.jpg'>
-    </div>
-  </div>
-  <hr class='featurette-divider'>
-  <div class='panel panel-default'>
-    <div class='panel-heading'>
-      <h2 class='panel-title'>Our Company</h2>
-    </div>
-    <div class='panel-body'>
-      <p>
-        NZ MADE 2013 ltd is a professional production company in a variety of disposable cups, bowls, and other food paper container products.
-      </p>
-      <p>
-        The company has the most advanced production equipments, efficient production lines, good quality control and reliable management team that can guarantee and deliver quality products and prompt services.The company's novel products are of unique designs with careful selection and production, supported by our creative and experienced team.  Each product reflects the company mission to deliver the finest quality products, excellent and reliable services and most importantly, to exceed customers' expectations  and satisfaction.
-      </p>
+  <div id='featurette' class='stackable ui grid featurette'>
+    <div class='nine wide column'>
+		<div class='ul segment'>
+      		<h2 class='ui header'>
+      		  First feature heading
+      		  <span class='text-muted'>
+      		    It'll blow your mind.
+      		  </span>
+      		</h2>
+      		<p>
+      		  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+      		</p>
+		</div>
+	</div>
+    <div class='seven wide column'>
+		<div class='ul segment'>
+			<img alt='all cups together' class='img-responsive' src='img/all.jpg' />
+	  	</div>
     </div>
   </div>
-  <hr class='featurette-divider'>
+  <hr class='ui divider' />
+
+  <div class='ui segment'>
+  	<h2 class='ui top attached label'>Our Company</h2>
+  	<p>
+  	  NZ MADE 2013 ltd is a professional production company in a variety of disposable cups, bowls, and other food paper container products.
+  	</p>
+  	<p>
+  	  The company has the most advanced production equipments, efficient production lines, good quality control and reliable management team that can guarantee and deliver quality products and prompt services.The company's novel products are of unique designs with careful selection and production, supported by our creative and experienced team.  Each product reflects the company mission to deliver the finest quality products, excellent and reliable services and most importantly, to exceed customers' expectations  and satisfaction.
+  	</p>
+  </div>
 </div>

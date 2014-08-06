@@ -27,6 +27,6 @@
     "holderjs": "~2.3.2",
     "ember-resolver": "~0.1.5",
     "bourbon": "~4.0.2",
-    "bootstrap-sass-official": "~3.2.0"
+    "semantic-ui-sass": "*"
   }
 }

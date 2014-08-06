@@ -1,20 +1,25 @@
-<li class='col-md-4'>
-	<div class='thumbnail'>
-		<img {{bind-attr src=url alt=alt}} />
+<li class='item'>
+	<div class='image'>
+		<img {{bind-attr src=url alt=alt }} />
+		<a class='like ui corner label'>
+			<i class='like icon'></i>
+		</a>
 	</div>
-	<div class='caption'>
-		<h3 class='name-me'>{{name}}</h3>
-		<p>{{description}}</p>
-		<div class='row no-gutter'>
-			<div class='col-xs-offset-6 col-xs-3'>
-				<!-- <button {{action 'increaseAmount' 'up'}}>up<button> -->
-				<div class='input-group'>
-					{{input type='number' class='form-control' value=amount step='1'}}
-					{{button-spinner action='increaseAmount'}}
+	<div class='content'>
+		<h3 class='name'>{{name}}</h3>
+		<p class='description'>{{description}}</p>
+		<div class='ui grid'>
+			<div class='right floated nine wide column'>
+				<div class='ui two column grid'>
+					<div class='column'>
+						<div class='ui small input '>
+							<input type='number' value='0' />
+						</div>
+					</div>
+					<div class='column'>
+							<button class='ui small primary button column'>Add</button>
+					</div>
 				</div>
-			</div>
-			<div class='col-xs-3'>
-				<button class='btn btn-primary'>Buy</button>
 			</div>
 		</div>
 	</div>
