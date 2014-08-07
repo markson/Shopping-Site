@@ -8,6 +8,18 @@ body {
 	color: #5a5a5a;
 }
 
+main {
+	margin: 0 auto;
+}
+
+header .logo {
+	display: inline-block;
+	margin: 0 10px;
+ img {
+	 padding: 5px;
+ }
+}
+
 a {
 	color: #428bca;
 	text-decoration: none;
@@ -55,7 +67,7 @@ a {
 }
 ul.items.ui > li.item  {
 	width: 280px;
-	height: 500px;
+	height: 470px;
 }
 
 .no-gutter > div{
@@ -142,6 +154,28 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 }
 
-.text-muted {
-	color: #777777; 
+
+.description {
+	height: 80px;
+	overflow: scroll;
 }
+.text-muted {
+	color: #777777;
+}
+
+.button-group {
+	margin-top: 10px;
+	margin-button:15px;
+}
+.button-group * {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.ui.menu.bar {
+	display:inline-block;
+}
+.hidden.content {
+	font-size: 0.9em;
+}
+

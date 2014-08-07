@@ -20,7 +20,6 @@
     "ember-data": "~1.0.0-beta.8",
     "handlebars": "~1.3.0",
     "jquery": "1.11.1",
-    "font-awesome": "~4.1.0",
     "responsejs": "~0.9.0"
   },
   "devDependencies": {
